@@ -4,4 +4,9 @@ jdk:
 install:
 - mvn -N io.takari:maven:wrapper
 - ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+services:
+  - mysql
+before_install:
+  - chmod +x mvnw
+  - mysql -u root -e 'CREATE DATABASE IF NOT EXISTS juris-ti-bd;'
 
